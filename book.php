@@ -1,0 +1,139 @@
+<?php include('server.php'); ?> 
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>HOHO</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+</head>
+
+<body class="bdy">
+    <!--navbaar-->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+          <div class="site-logo">
+          <a href="index.php" class="brand">HOHO</a>
+              <a><p>Hop On Hop Off Sightseeing Service</p></a>
+        </div>
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php#about">About Us</a></li>
+            <li><a href="index.php#features">Attractions</a></li>
+            <li><a href="index.php#packages">Packages</a></li>
+            <li><a href="index.php#contact">Contact US</a></li>
+              <li><div class="content">
+        
+           
+           
+            <?php if(isset($_SESSION["email"])); ?>
+            <p>Welcome <strong><?php echo $_SESSION["email"]; ?></strong></p>
+            <p><a href="book.php?logout='1'">logout</a></p>
+            
+        
+        </div>
+            </li>
+          </ul>
+        </div>
+        <!-- /.Navbar-collapse -->
+          
+      </div>
+    </div>
+        </nav>
+    
+        <div class="modal-dialog">
+		<div class="modal-content"><br>
+            <a href="index.php" class=" ">« Back</a>
+			<div class="modal-heading">
+				<h2 class="text-center">Book</h2>
+			</div>
+			<hr />
+			<div class="modal-body">    
+  
+<div class="container">
+    <div class="row">
+        <div class='col-lg-6 col-xs-12'>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="form-group">
+                               <b>Choose Date</b>
+                                 
+								
+
+		                <div class='input-group date' id='datepicker'>
+		                    <input type='text' class="form-control" />
+		                    <span class="input-group-addon">
+		                        <span class="glyphicon glyphicon-calendar"></span>
+		                    </span>
+		                </div>
+		            </div>
+		        
+	        </div>
+	    </div>
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+	<script >
+	    $(function () {
+	        $('#datepicker').datepicker({
+	            format: "dd/mm/yyyy",
+	            autoclose: true,
+	            todayHighlight: true,
+		        showOtherMonths: true,
+		        selectOtherMonths: true,
+		        autoclose: true,
+		        changeMonth: true,
+		        changeYear: true,
+		        orientation: "button"
+	        });
+	    });
+	</script>
+
+
+                                </div>
+                        </div>
+                    </div>
+            <div class="col-lg-6 col-xs-12">
+                        <div class="form-group">
+                             <b>Enter No. of seats</b>
+                             <input type="number" maxlength="10" class='form-control'/></div>
+            </div>
+                </div>
+            <br>
+            <select autofocus id="account_type" name="account_type" class="input-lg form-control" placeholder="Type"  >
+                <option selected hidden><b>Choose Package</b></option>
+                            <option value="onedaytour" >One-Day Tour</option>
+                            <option value="twodaytour">Two-Day Tour</option>
+                            <option value="wednesdaytour">Wednesday Tour</option>
+                            <option value="grouptour">Group Tour</option>
+            </select>
+                <hr>
+                <center>
+                <form action="success.php">
+                    <button type="submit" class="btn btn-success btn-lg" name="proceed">Proceed</button></form></center>
+            </div>
+        </div>
+    
+    
+    
+    </body>
+</html>
